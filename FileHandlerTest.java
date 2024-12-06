@@ -5,12 +5,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileHandlerTest {
+     /**
+     * Writes the specified content to a file at the given file path.
+     * If the file does not exist, it will be created.
+     * 
+     * @param filePath The path of the file to write to.
+     * @param content  The content to be written to the file.
+     * @throws IOException If an I/O error occurs during file writing.
+     */
     public static void writeToFile(String filePath, String content) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);
         }
     }
     public static String readFromFile(String filePath) throws IOException {
+        /**
+     * Reads and returns the content of a file at the given file path.
+     * 
+     * @param filePath The path of the file to read.
+     * @return A string containing the content of the file.
+     * @throws IOException If an I/O error occurs during file reading.
+     */
+
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
