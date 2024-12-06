@@ -3,6 +3,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class File{
+        /**
+     * Writes the specified content to a file at the given file path.
+     * If the file does not exist, it will be created.
+     * 
+     * @param filePath The path of the file to write to.
+     * @param content  The content to be written to the file.
+     * @throws IOException If an I/O error occurs during file writing.
+     */
     public static void writeToFile(String filePath, String content) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);
