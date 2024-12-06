@@ -1,6 +1,13 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class File{
+    public static void writeToFile(String filePath, String content) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(content);
+        }
+    }
      public static void main(String[] args) {
         String filePath = "testFile.txt";
         String content = "Hello, this is a test content.";
