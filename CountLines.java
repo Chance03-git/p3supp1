@@ -1,6 +1,24 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class CountLines {
+     public static void writeToFile(String filePath, String content) throws IOException {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.write(content);
+        }
+    }
+    public static int countLinesInFile(String filePath) throws IOException {
+        int lineCount = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            while (reader.readLine() != null) {
+                lineCount++;
+            }
+        }
+        return lineCount;
+    }
+
      public static void main(String[] args) {
         String filePath = "testFile.txt";
         String content = "Hello, this is line 1.\nThis is line 2.\nAnd this is line 3.";
